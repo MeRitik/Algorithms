@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+void prefixSum(int arr[],int prefix[],int len)
+{
+    prefix[0] = arr[0];
+    for(int i=1;i<len;i++)
+    {
+        prefix[i] = prefix[i-1] + arr[i];
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int arr[] = {10,20,30,40,5,12};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    for(int i=0;i<len;i++)
+    {
+        cout << arr[i] << " ";
+    }
+    
+    int prefix[len];
+    prefixSum(arr,prefix,len);
+
+    for(int i=0;i<len;i++)
+    {
+        cout << prefix[i] << "  ";
+    }
+
+    return 0;
+}
